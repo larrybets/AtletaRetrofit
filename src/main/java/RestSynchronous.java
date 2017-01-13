@@ -55,23 +55,23 @@ public class RestSynchronous {
             System.out.println("Status code: " + responseAtleta.code() + System.lineSeparator() +
                     "POST player: " + atletaResp);
             callAtleta = atletaService.updateAtleta(atletaResp);
-            responseAtleta = callAtleta.execute();
+            responseAtleta= callAtleta.execute();
 
             System.out.println("Status code: " + responseAtleta.code() + System.lineSeparator() +
                     "PUT player: " + responseAtleta.body());
 
-//
-//        Call<Void> callDelete = atletaService.deleteAtleta(atletaResp.getId());
-//            Response<Void> responseDelete= callDelete.execute();
-//        System.out.println("DELETE status code: " + responseDelete.code());
-//        call = atletaService.getAtletas();
-//        response= call.execute();
-//        System.out.println("Comprobación del delete " +
-//                "Status code: " + response.code() + System.lineSeparator() +
-//                "GET players: " + response.body());
-//    } else {
-//        System.out.println("Status code: " + responseAtleta.code() +
-//                "Message error: " + responseAtleta.errorBody());
-//    }
-        }
-    }}
+
+        Call<Void> callDelete = atletaService.deleteAtleta(atletaResp.getId());
+            Response<Void> responseDelete= callDelete.execute();
+        System.out.println("DELETE status code: " + responseDelete.code());
+        call = atletaService.getAtletas();
+        response= call.execute();
+        System.out.println("Comprobación del delete " +
+                "Status code: " + response.code() + System.lineSeparator() +
+                "GET players: " + response.body());
+    } else {
+        System.out.println("Status code: " + responseAtleta.code() +
+                "Message error: " + responseAtleta.errorBody());
+    }
+    }
+}
